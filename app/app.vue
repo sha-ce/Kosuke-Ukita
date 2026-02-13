@@ -11,7 +11,7 @@ const profile = {
   socials: [
     { 
       name: "GitHub", 
-      url: "https://github.com/sha-ce", 
+      url: "https://github.com/Kosuke-Ukita", 
       icon: "uil:github", 
       color: "hover:text-gray-900" 
     },
@@ -42,16 +42,16 @@ const profile = {
   ],
 
   bio: `
-    I am a researcher and upcoming PhD student at Kyushu Institute of Technology, Graduate School of Computer Science and Systems Engineering.
-    I aim to construct high-performance, energy-efficient, and small-scale foundation models for advanced representation learning.
-    [Keywords: Generative AI, Foundation Model, Multimodal Learning]
+    どうも．浮田 嵩祐です．AIに関する研究をしている大学院生です．
+    生成AIの効率化や基礎理論(e.g. grokking)に興味があります．
+    Department of Creative Informatics, Graduate School of Computer Science and Systems Engineering.
   `
 }
 
 // --- news ---
 const news = [
-  { date: "2026-02-08", content: "Our paper was accepted to PAKDD 2026!" },
-  { date: "2026-01-23", content: "Our paper was accepted to AISTATS 2026!" },
+  { date: "2026-02-08", content: "我々の論文が，国際会議PAKDD2026にOral presentationとして採択されました．" },
+  { date: "2026-01-23", content: "我々の論文が，国際会議AISTATS2026にSpotlight presentation (Top 3%)として採択されました．" },
 ]
 
 // --- publications ---
@@ -280,15 +280,15 @@ const skills = [
     
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
       <div class="max-w-5xl mx-auto px-6 h-16 flex justify-between items-center">
-        <a :href="`${base}`" class="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">{{ profile.name }}</a>
+        <a href="#" class="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">{{ profile.name }}</a>
         
         <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-          <a :href="`${base}#about`" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:user" /> About </a>
-          <a :href="`${base}#news`" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:newspaper" /> News </a>
-          <a :href="`${base}#publications`" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:book-open" /> Publications </a>
-          <a :href="`${base}#awards`" class="hover:text-orange-600 transition"><Icon name="heroicons:trophy" /> Awards </a>
-          <a :href="`${base}#education`" class="hover:text-orange-600 transition"><Icon name="heroicons:academic-cap" /> Education </a>
-          <a :href="`${base}#skills`" class="hover:text-orange-600 transition"><Icon name="heroicons:cpu-chip" /> Skills </a>
+          <a href="#about" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:user" /> About </a>
+          <a href="#news" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:newspaper" /> News </a>
+          <a href="#publications" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:book-open" /> Publications </a>
+          <a href="#awards" class="hover:text-orange-600 transition"><Icon name="heroicons:trophy" /> Awards </a>
+          <a href="#education" class="hover:text-orange-600 transition"><Icon name="heroicons:academic-cap" /> Education </a>
+          <a href="#skills" class="hover:text-orange-600 transition"><Icon name="heroicons:cpu-chip" /> Skills </a>
         </nav>
 
         <button class="md:hidden text-slate-600">
@@ -309,15 +309,13 @@ const skills = [
         
         <div class="md:col-span-8 space-y-5">
           <div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-2">
+            <h1 class="text-2xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-2">
               {{ profile.name }}
             </h1>
-            <h1 class="text-xl font-bold">浮田 嵩祐</h1>
-
+            <p class="text-xl font-bold">浮田 嵩祐</p>
             <p class="text-xl text-orange-600 font-medium">{{ profile.role }}</p>
-            <p class="text-slate-500 flex items-center gap-2">
-              <Icon name="heroicons:building-library" /> {{ profile.affiliation }}
-            </p>
+            <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:building-library" /> {{ profile.affiliation }}</p>
+            <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:map-pin" />Japan</p>
           </div>
           
           <p class="leading-relaxed text-slate-600 whitespace-pre-line text-lg">

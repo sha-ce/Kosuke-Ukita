@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/icon'
   ],
   app: {
-    baseURL: '/Kosuke-Ukita/',
+    baseURL: '/',
     head: {
       title: 'Kosuke Ukita - Portfolio',
       meta: [
