@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   app: {
-    baseURL: '/Kosuke-Ukita',
+    baseURL: '/Kosuke-Ukita/',
     head: {
       title: 'Researcher Portfolio',
       meta: [
