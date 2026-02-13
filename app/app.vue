@@ -7,7 +7,7 @@ const profile = {
   name: "Kosuke Ukita",
   role: "MSc / Researcher",
   affiliation: "Kyushu Institute of Technology",
-  email: "ukita.kosuke299[at]@mail.kyutech.jp", 
+  email: "ukita.kosuke299[at]mail.kyutech.jp", 
   socials: [
     { 
       name: "GitHub", 
