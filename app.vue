@@ -18,6 +18,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 useHead({
+  meta: [{ name: 'google-site-verification', content: '<meta name="google-site-verification" content="Vueua9w0ImvYpxqfLC-2PPndYTAHZ6YKxhlPQ-p2F30" />' }],
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Kosuke Ukita` : 'Kosuke Ukita';
   }
