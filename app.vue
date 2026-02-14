@@ -20,7 +20,7 @@ useSeoMeta({
 useHead({
   meta: [{ name: 'google-site-verification', content: 'Vueua9w0ImvYpxqfLC-2PPndYTAHZ6YKxhlPQ-p2F30' }],
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Kosuke Ukita` : 'Kosuke Ukita';
+    return titleChunk ? `${titleChunk}` : 'Kosuke Ukita';
   }
 })
 </script>
