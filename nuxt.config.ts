@@ -24,11 +24,5 @@ export default defineNuxtConfig({
     }
   },
 
-  sitemap: {
-    sources: [
-      '/api/sitemap'
-    ]
-  },
-
   compatibilityDate: '2025-01-01'
 })
