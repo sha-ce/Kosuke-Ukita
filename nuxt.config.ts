@@ -2,8 +2,16 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@nuxtjs/sitemap',
+    '@nuxt/content'
   ],
+
+  site: {
+    url: 'https://Kosuke-ukita.github.io',
+    name: 'Kosuke Ukita - Portfolio',
+  },
+
   app: {
     baseURL: '/',
     head: {
@@ -15,5 +23,12 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  sitemap: {
+    sources: [
+      '/api/sitemap'
+    ]
+  },
+
   compatibilityDate: '2025-01-01'
 })

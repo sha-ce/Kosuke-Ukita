@@ -1,6 +1,6 @@
 {
-  "date": "2026-02-14T06:21:34.494Z",
-  "preset": "static",
+  "date": "2026-02-14T09:33:52.735Z",
+  "preset": "nitro-prerender",
   "framework": {
     "name": "nuxt",
     "version": "4.3.1"
@@ -9,7 +9,7 @@
     "nitro": "2.13.1"
   },
   "commands": {
-    "preview": "npx serve public"
+    "preview": "npx serve ./public"
   },
   "config": {}
 }

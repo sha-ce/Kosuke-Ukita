@@ -5,7 +5,8 @@ import { news } from '~/data/news'
 import { publications } from '~/data/publications'
 import { awards } from '~/data/awards'
 import { education } from '~/data/education'
-
+import { others } from '~/data/others'
+import { ref, onMounted } from 'vue'
 profile.sociels = [
     {name: "GitHub", url: "https://github.com/Kosuke-Ukita", icon: "uil:github", color: "hover:text-gray-300 transition"},
     {name: "Hugging Face", url: "https://huggingface.co/sha-ce", icon: "simple-icons:huggingface", color: "hover:text-yellow-500 transition"},
@@ -16,6 +17,42 @@ profile.sociels = [
     {name: "Instagram", url: "./", icon: "simple-icons:instagram", color: "hover:text-pink-500 transition"},
     {name: "YouTube", url: "./", icon: "simple-icons:youtube", color: "hover:text-red-500 transition"},
 ]
+
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS9vAb9jwdZXkzX8wdZIFzCl3TQRk8wqj1VqVEidr17coW2oCyRYlpMVKbn-KKuZMrCzzD_cjKnPVIG/pub?gid=0&single=true&output=csv'
+type Entry = {
+  date: string
+  content: string
+}
+
+const Entries = ref<Entry[]>([])
+const loading = ref(true)
+
+const parseCSV = (csvText: string): Entry[] => {
+  const lines = csvText.trim().split('\n')
+  const headers = lines[0].split(',')
+  
+  return lines.slice(1).map(line => {
+    const values = line.split(',')
+    
+    if (values.length < 2) return null
+
+    const date = values[0].trim()
+    const content = values.slice(1).join(',').trim()
+
+    return { date, content }
+  }).filter((entry): entry is Entry => entry !== null)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}
+
+onMounted(async () => {
+  try {
+    const response = await fetch(SHEET_URL)
+    const text = await response.text()
+    Entries.value = parseCSV(text)
+  } catch (error) {
+    console.error('Failed to fetch diary:', error)
+  } finally { loading.value = false }
+})
 
 const highlightAuthor = (authors: string) => {
   return authors
@@ -63,11 +100,13 @@ const highlightAuthor = (authors: string) => {
 
       <section id="news" class="scroll-mt-24">
         <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-6"><Icon name="heroicons:megaphone" class="text-orange-500" /> News </h3>
-        <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
-          <div v-for="(item, index) in news" :key="index" 
-               class="p-4 flex flex-col sm:flex-row gap-2 sm:gap-6 border-b border-slate-50 last:border-0 hover:bg-slate-50 transition">
-            <span class="text-sm font-mono text-slate-500 min-w-[100px]">{{ item.date }}</span>
-            <span class="text-slate-800">{{ item.content }}</span>
+        <div v-if="loading" class="text-center py-10 text-slate-500">Loading...</div>
+        <div v-else class="space-y-10">
+          <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+            <div v-for="(entry, index) in Entries" :key="index" class="p-4 flex flex-col sm:flex-row gap-2 sm:gap-6 border-b border-slate-50 last:border-0 hover:bg-slate-50 transition">
+              <span class="text-sm font-mono text-slate-500 min-w-[100px]">{{ entry.date }}</span>
+              <span class="text-slate-800">{{ entry.content }}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -146,6 +185,26 @@ const highlightAuthor = (authors: string) => {
               </div>
             </div>
             
+          </div>
+        </div>
+      </section>
+
+      <section id="others" class="scroll-mt-24">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+          <Icon name="heroicons:cpu-chip" class="text-orange-500" /> Others
+        </h3>
+        
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div v-for="(otherGroup, index) in others" :key="index" class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-3 border-b border-slate-100 pb-2">
+              {{ otherGroup.category }}
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              <span v-for="item in otherGroup.items" :key="item" 
+                    class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full font-medium">
+                {{ item }}
+              </span>
+            </div>
           </div>
         </div>
       </section>

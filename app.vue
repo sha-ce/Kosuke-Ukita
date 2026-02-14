@@ -7,6 +7,21 @@ import { awards } from '~/data/awards'
 const isMenuOpen = ref(false)
 const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
 const closeMenu = () => { isMenuOpen.value = false }
+
+// SEO
+useSeoMeta({
+  title: 'Kosuke Ukita - Graduate Student / Researcher',
+  ogTitle: 'Kosuke Ukita - Graduate Student / Researcher',
+  description: 'Researcher in Generative AI, focusing on Flow Matching.',
+  ogDescription: 'Researcher in Generative AI, focusing on Flow Matching.',
+  ogImage: 'https://Kosuke-Ukita.github.io/Kosuke-Ukita/public/assets/photo.png',
+  twitterCard: 'summary_large_image',
+})
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - Kosuke Ukita` : 'Kosuke Ukita - Researcher in Generative AI';
+  }
+})
 </script>
 
 <template>
@@ -24,7 +39,7 @@ const closeMenu = () => { isMenuOpen.value = false }
           <NuxtLink to="/" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:home" class="w-4 h-4" /> Home </NuxtLink>
           <NuxtLink to="/cv" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:document-text" class="w-4 h-4" /> CV </NuxtLink>
           <NuxtLink to="/publications" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:book-open" class="w-4 h-4" /> Publications </NuxtLink>
-          <NuxtLink to="/diary" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:pencil" class="w-4 h-4" /> Diary </NuxtLink>
+          <NuxtLink to="/memo" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:pencil" class="w-4 h-4" /> Memo </NuxtLink>
         </nav>
 
         <button @click="toggleMenu" class="md:hidden text-slate-600 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition">
@@ -38,7 +53,7 @@ const closeMenu = () => { isMenuOpen.value = false }
           <NuxtLink to="/" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:home" class="w-5 h-5" /> Home </NuxtLink>
           <NuxtLink to="/cv" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:document-text" class="w-5 h-5" /> CV </NuxtLink>
           <NuxtLink to="/publications" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:book-open" class="w-5 h-5" /> Publications </NuxtLink>
-          <NuxtLink to="/diary" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:pencil-square" class="w-5 h-5" /> Diary </NuxtLink>
+          <NuxtLink to="/memo" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:pencil-square" class="w-5 h-5" /> Memo </NuxtLink>
         </nav>
       </div>
     </header>

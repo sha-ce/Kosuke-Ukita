@@ -37,7 +37,7 @@ const highlightAuthor = (authors: string) => {
           <p class="text-sm">Nationality: Japanese</p>
         </div>
 
-        <div class="flex flex-wrap gap-4 text-sm text-slate-500 pt-2">
+        <div class="flex flex-wrap gap-4 text-sm text-slate-500 py-2">
           <span class="flex items-center gap-1">
             <Icon name="heroicons:envelope" /> {{ profile.email }}
           </span>
@@ -160,8 +160,6 @@ const highlightAuthor = (authors: string) => {
           </div>
         </div>
       </section>
-
-      
 
       <section id="others" class="scroll-mt-24">
         <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
