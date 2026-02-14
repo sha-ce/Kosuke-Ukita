@@ -6,7 +6,7 @@ import { publications } from '~/data/publications'
 import { awards } from '~/data/awards'
 import { education } from '~/data/education'
 import { others } from '~/data/others'
-import { ref, onMounted } from 'vue'
+
 profile.sociels = [
     {name: "GitHub", url: "https://github.com/Kosuke-Ukita", icon: "uil:github", color: "hover:text-gray-300 transition"},
     {name: "Hugging Face", url: "https://huggingface.co/sha-ce", icon: "simple-icons:huggingface", color: "hover:text-yellow-500 transition"},
@@ -17,42 +17,6 @@ profile.sociels = [
     {name: "Instagram", url: "./", icon: "simple-icons:instagram", color: "hover:text-pink-500 transition"},
     {name: "YouTube", url: "./", icon: "simple-icons:youtube", color: "hover:text-red-500 transition"},
 ]
-
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS9vAb9jwdZXkzX8wdZIFzCl3TQRk8wqj1VqVEidr17coW2oCyRYlpMVKbn-KKuZMrCzzD_cjKnPVIG/pub?gid=0&single=true&output=csv'
-type Entry = {
-  date: string
-  content: string
-}
-
-const Entries = ref<Entry[]>([])
-const loading = ref(true)
-
-const parseCSV = (csvText: string): Entry[] => {
-  const lines = csvText.trim().split('\n')
-  const headers = lines[0].split(',')
-  
-  return lines.slice(1).map(line => {
-    const values = line.split(',')
-    
-    if (values.length < 2) return null
-
-    const date = values[0].trim()
-    const content = values.slice(1).join(',').trim()
-
-    return { date, content }
-  }).filter((entry): entry is Entry => entry !== null)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-}
-
-onMounted(async () => {
-  try {
-    const response = await fetch(SHEET_URL)
-    const text = await response.text()
-    Entries.value = parseCSV(text)
-  } catch (error) {
-    console.error('Failed to fetch diary:', error)
-  } finally { loading.value = false }
-})
 
 const highlightAuthor = (authors: string) => {
   return authors
@@ -100,15 +64,12 @@ const highlightAuthor = (authors: string) => {
 
       <section id="news" class="scroll-mt-24">
         <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-6"><Icon name="heroicons:megaphone" class="text-orange-500" /> News </h3>
-        <div v-if="loading" class="text-center py-10 text-slate-500">Loading...</div>
-        <div v-else class="space-y-10">
           <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
-            <div v-for="(entry, index) in Entries" :key="index" class="p-4 flex flex-col sm:flex-row gap-2 sm:gap-6 border-b border-slate-50 last:border-0 hover:bg-slate-50 transition">
-              <span class="text-sm font-mono text-slate-500 min-w-[100px]">{{ entry.date }}</span>
-              <span class="text-slate-800">{{ entry.content }}</span>
+            <div v-for="(info, index) in news" :key="index" class="p-4 flex flex-col sm:flex-row gap-2 sm:gap-6 border-b border-slate-50 last:border-0 hover:bg-slate-50 transition">
+              <span class="text-sm font-mono text-slate-500 min-w-[100px]">{{ info.date }}</span>
+              <span class="text-slate-800">{{ info.content }}</span>
             </div>
           </div>
-        </div>
       </section>
 
       <section id="publications" class="scroll-mt-24">
@@ -212,20 +173,3 @@ const highlightAuthor = (authors: string) => {
     </main>
   </div>
 </template>
-
-<style>
-/* カスタムスクロールバー（Webkit系ブラウザ用） */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-</style>

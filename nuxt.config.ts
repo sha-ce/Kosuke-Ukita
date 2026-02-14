@@ -6,20 +6,26 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxt/content'
   ],
+  content: {
+    markdown: {
+      remarkPlugins: ['remark-math'],
+      rehypePlugins: ['rehype-katex']
+    }
+  },
 
   site: {
     url: 'https://Kosuke-ukita.github.io',
-    name: 'Kosuke Ukita - Portfolio',
+    name: 'Kosuke Ukita',
   },
 
   app: {
     baseURL: '/',
     head: {
-      title: 'Kosuke Ukita - Portfolio',
+      title: 'Kosuke Ukita',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Personal portfolio website of a graduate student.' }
+        { name: 'description', content: 'Personal website of a graduate student.' }
       ]
     }
   },

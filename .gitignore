@@ -22,3 +22,19 @@ logs
 .env
 .env.*
 !.env.example
+
+# IDE
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+
+# Build artifacts
+*.tsbuildinfo
+
+# Package manager lock files (optional)
+yarn.lock
+package-lock.json

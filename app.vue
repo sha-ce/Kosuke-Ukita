@@ -10,16 +10,16 @@ const closeMenu = () => { isMenuOpen.value = false }
 
 // SEO
 useSeoMeta({
-  title: 'Kosuke Ukita - Graduate Student / Researcher',
-  ogTitle: 'Kosuke Ukita - Graduate Student / Researcher',
-  description: 'Researcher in Generative AI, focusing on Flow Matching.',
-  ogDescription: 'Researcher in Generative AI, focusing on Flow Matching.',
-  ogImage: 'https://Kosuke-Ukita.github.io/Kosuke-Ukita/public/assets/photo.png',
+  title: 'Kosuke Ukita',
+  ogTitle: 'Kosuke Ukita',
+  description: 'Graduate Student / Researcher in Generative AI.',
+  ogDescription: 'Graduate Student / Researcher in Generative AI.',
+  ogImage: 'https://Kosuke-Ukita.github.io/Kosuke-Ukita/public/favicon.ico',
   twitterCard: 'summary_large_image',
 })
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - Kosuke Ukita` : 'Kosuke Ukita - Researcher in Generative AI';
+    return titleChunk ? `${titleChunk} - Kosuke Ukita` : 'Kosuke Ukita';
   }
 })
 </script>
@@ -53,7 +53,7 @@ useHead({
           <NuxtLink to="/" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:home" class="w-5 h-5" /> Home </NuxtLink>
           <NuxtLink to="/cv" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:document-text" class="w-5 h-5" /> CV </NuxtLink>
           <NuxtLink to="/publications" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:book-open" class="w-5 h-5" /> Publications </NuxtLink>
-          <NuxtLink to="/memo" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:pencil-square" class="w-5 h-5" /> Memo </NuxtLink>
+          <NuxtLink to="/memo" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition flex items-center gap-2"><Icon name="heroicons:pencil" class="w-5 h-5" /> Memo </NuxtLink>
         </nav>
       </div>
     </header>
@@ -84,3 +84,22 @@ useHead({
       <div class="text-center text-slate-400 text-xs mt-8">&copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights reserved. </div>
     </footer>
 </template>
+
+
+<style>
+@import 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css';
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+</style>

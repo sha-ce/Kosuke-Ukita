@@ -2,17 +2,11 @@
 import { profile } from '~/data/profile'
 import { publications } from '~/data/publications'
 
-// error も受け取るようにする
 const { data: articles, error } = await useAsyncData('memo-list', () => 
-  queryContent('/memo').find()
+  queryContent('/memo')
+    .sort({ date: -1 })
+    .find()
 )
-
-// エラーがあれば表示
-if (error.value) {
-  console.error('★記事の取得に失敗しました:', error.value)
-} else {
-  console.log('★取得成功:', articles.value)
-}
 </script>
 
 <template>
@@ -33,10 +27,10 @@ if (error.value) {
     <section id="publications" class="scroll-mt-24">
         <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:pencil" class="text-orange-500" /> Memo </h3>
         <div class="space-y-6">
-          <article v-for="article in articles" :key="article._path" class="group relative pl-6 border-l-2 border-slate-200 hover:border-blue-400 transition-colors">
+          <article v-for="article in articles" :key="article._path" class="group relative pl-6 border-l-2 border-slate-200 hover:border-orange-400 transition-colors">
             <NuxtLink :to="article._path" class="block py-2">
               <span class="text-sm font-mono text-slate-500">{{ article.date }}</span>
-              <h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mt-1">{{ article.title }}</h2>
+              <h2 class="text-xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors mt-1">{{ article.title }}</h2>
               <p class="text-slate-600 mt-2 line-clamp-2 text-sm">{{ article.description }}</p>
             </NuxtLink>
           </article>

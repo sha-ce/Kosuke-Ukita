@@ -2,7 +2,6 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    # あなたのブランチ名に合わせてください (main または master)
     branches: [ main ]
 
 jobs:

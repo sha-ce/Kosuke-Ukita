@@ -9,7 +9,7 @@ export default <Config>{
     "./plugins/**/*.{js,ts}",
     "./app.vue",
     "./error.vue",
-    "./content/**/*.md" // Markdownファイルも対象にする
+    "./content/**/*.md"
   ],
   theme: {
     extend: {},
