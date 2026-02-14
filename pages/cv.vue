@@ -5,7 +5,13 @@ import { publications } from '~/data/publications'
 import { awards } from '~/data/awards'
 import { education } from '~/data/education'
 import { experience } from '~/data/experience'
-import { skills } from '~/data/skills'
+import { others } from '~/data/others'
+
+const highlightAuthor = (authors: string) => {
+  return authors
+    .replace(/Kosuke Ukita/g, `<span class="underline">Kosuke Ukita</span>`)
+    .replace(/浮田嵩祐/g, `<span class="underline">浮田嵩祐</span>`);
+}
 </script>
 
 <template>
@@ -40,6 +46,8 @@ import { skills } from '~/data/skills'
         </div>
       </div>
     </header>
+
+      <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:document-text" class="text-orange-500" /> CV </h3>
 
       <section id="education" class="scroll-mt-24">
         <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
@@ -89,7 +97,7 @@ import { skills } from '~/data/skills'
                 {{ paper.title }}
               </h4>
               <div class="text-slate-500 text-base">
-                {{ paper.authors }}
+                <span v-html="highlightAuthor(paper.authors)"></span>
               </div>
               <div class="font-semibold text-slate-900 italic">
                 {{ paper.venue }}
@@ -142,8 +150,8 @@ import { skills } from '~/data/skills'
             </div>
             
             <div>
-              <p class="font-bold text-slate-900 text-lg leading-tight">{{ award.title }}</p>
-              <div class="flex flex-wrap items-center gap-x-2 text-slate-600 mt-1">
+              <p class="font-bold text-slate-900 text-sm leading-tight">{{ award.title }}</p>
+              <div class="flex flex-wrap items-center gap-x-2 text-sm text-slate-600 mt-1">
                 <span>{{ award.organization }}</span>
                 <span class="text-slate-300 hidden sm:inline">|</span>
                 <span class="text-slate-500 text-sm">{{ award.year }}</span>
@@ -156,18 +164,18 @@ import { skills } from '~/data/skills'
 
       
 
-      <section id="skills" class="scroll-mt-24">
+      <section id="others" class="scroll-mt-24">
         <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
-          <Icon name="heroicons:cpu-chip" class="text-orange-500" /> Skills
+          <Icon name="heroicons:cpu-chip" class="text-orange-500" /> Others
         </h3>
         
         <div class="grid sm:grid-cols-2 gap-6">
-          <div v-for="(skillGroup, index) in skills" :key="index" class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm">
+          <div v-for="(otherGroup, index) in others" :key="index" class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm">
             <h4 class="font-bold text-slate-800 mb-3 border-b border-slate-100 pb-2">
-              {{ skillGroup.category }}
+              {{ otherGroup.category }}
             </h4>
             <div class="flex flex-wrap gap-2">
-              <span v-for="item in skillGroup.items" :key="item" 
+              <span v-for="item in otherGroup.items" :key="item" 
                     class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full font-medium">
                 {{ item }}
               </span>

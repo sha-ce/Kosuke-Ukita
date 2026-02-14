@@ -60,15 +60,11 @@ onMounted(async () => {
       <div>
         <h1 class="text-2xl font-bold text-slate-900">{{ profile.name }}</h1>
         <p class="text-slate-500 text-sm flex items-center gap-2"><Icon name="heroicons:academic-cap" /> {{ profile.role }}</p>
-        <p class="text-slate-500 text-sm flex items-center gap-2"><Icon name="heroicons:building-library" />{{ profile.affiliation }}</p>
       </div>
     </div>
 
-    <section id="diary" class="max-w-3xl mx-auto px-6 py-12">
-    <h1 class="text-3xl font-extrabold text-slate-900 mb-10 flex items-center gap-3">
-      <Icon name="heroicons:pencil-square" class="text-orange-500" />
-      Diary
-    </h1>
+    <section id="publications" class="scroll-mt-24">
+        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:pencil" class="text-orange-500" /> Diary </h3>
 
     <div v-if="loading" class="text-center py-10 text-slate-500">
       Loading...

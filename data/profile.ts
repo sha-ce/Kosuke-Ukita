@@ -1,6 +1,6 @@
 export const profile = {
   name: "Kosuke Ukita",
-  role: "MSc / Researcher",
+  role: "MSc student / Researcher",
   affiliation: "Kyushu Institute of Technology",
   email: "ukita.kosuke299[at]mail.kyutech.jp", 
   socials: [
@@ -14,6 +14,5 @@ export const profile = {
     {name: "YouTube", url: "./", icon: "simple-icons:youtube", color: "hover:text-red-500 transition"},
   ],
   bio: `どうも．浮田 嵩祐です．AIに関する研究をしている大学院生です．
-    生成AIの効率化や基礎理論(e.g. grokking)に興味があります．
-    Department of Creative Informatics, Graduate School of Computer Science and Systems Engineering.`
+  生成AIの効率化や基礎理論(e.g. grokking)に興味があります．`
 }

@@ -1,6 +1,6 @@
 export const awards = [
   {
-    title: "Spotlight Presentation (Top 3% of submissions)",
+    title: "Spotlight Presentation (Top 3%)",
     organization: "The 29th Annual Conference on Artificial Intelligence and Statistics (AISTATS 2026)",
     year: "May 2026", icon: "heroicons:ticket" 
   },

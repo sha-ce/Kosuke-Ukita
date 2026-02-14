@@ -2,9 +2,10 @@
 import { profile } from '~/data/profile'
 import { publications } from '~/data/publications'
 
-// 名前強調関数
 const highlightAuthor = (authors: string) => {
-  return authors.replace("Kosuke Ukita", `<span class="font-bold underline decoration-blue-400">Kosuke Ukita</span>`);
+  return authors
+    .replace(/Kosuke Ukita/g, `<span class="underline">Kosuke Ukita</span>`)
+    .replace(/浮田嵩祐/g, `<span class="underline">浮田嵩祐</span>`);
 }
 </script>
 
@@ -20,7 +21,6 @@ const highlightAuthor = (authors: string) => {
       <div>
         <h1 class="text-2xl font-bold text-slate-900">{{ profile.name }}</h1>
         <p class="text-slate-500 text-sm flex items-center gap-2"><Icon name="heroicons:academic-cap" /> {{ profile.role }}</p>
-        <p class="text-slate-500 text-sm flex items-center gap-2"><Icon name="heroicons:building-library" />{{ profile.affiliation }}</p>
       </div>
     </div>
     <section id="publications" class="scroll-mt-24">
@@ -35,7 +35,7 @@ const highlightAuthor = (authors: string) => {
                 {{ paper.title }}
               </h4>
               <div class="text-slate-500 text-base">
-                {{ paper.authors }}
+                <span v-html="highlightAuthor(paper.authors)"></span>
               </div>
               <div class="font-semibold text-slate-900 italic">
                 {{ paper.venue }}

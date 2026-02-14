@@ -16,6 +16,12 @@ profile.sociels = [
     {name: "Instagram", url: "./", icon: "simple-icons:instagram", color: "hover:text-pink-500 transition"},
     {name: "YouTube", url: "./", icon: "simple-icons:youtube", color: "hover:text-red-500 transition"},
 ]
+
+const highlightAuthor = (authors: string) => {
+  return authors
+    .replace(/Kosuke Ukita/g, `<span class="underline">Kosuke Ukita</span>`)
+    .replace(/浮田嵩祐/g, `<span class="underline">浮田嵩祐</span>`);
+}
 </script>
 
 <template>
@@ -30,22 +36,25 @@ profile.sociels = [
           </div>
         </div>
         
-        <div class="md:col-span-8 space-y-5">
+        <div class="md:col-span-8 space-y-2">
           <div>
-            <h1 class="text-2xl md:text-2xl font-extrabold text-slate-800 tracking-tight mb-2">{{ profile.name }}</h1>
-            <p class="text-xl font-bold">浮田 嵩祐</p>
+            <h1 class="text-2xl md:text-2xl font-extrabold text-slate-800 tracking-tight mb-0">{{ profile.name }}</h1>
+            <p class="text-xl mb-2">浮田 嵩祐</p>
             <p class="text-xl text-orange-600 font-medium">{{ profile.role }}</p>
             <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:building-library" /> {{ profile.affiliation }}</p>
             <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:map-pin" />Fukuoka, Japan</p>
           </div>
           
+          <p class="text-xs text-slate-500 items-center mt-1">
+            Department of Creative Informatics, Graduate School of Computer Science and Systems Engineering.
+          </p>
           <p class="leading-relaxed text-slate-600 whitespace-pre-line text-lg">{{ profile.bio }}</p>
           
           <div class="flex flex-wrap gap-3 pt-2">
             <a :href="`mailto:${profile.email}`" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-700 hover:bg-slate-200 transition text-sm font-medium"><Icon name="heroicons:envelope" class="w-4 h-4" /> Email : {{ profile.email }} </a>
           </div>
           <div class="flex flex-wrap gap-3 pt-2">
-            <a v-for="social in profile.socials" :key="social.name" :href="social.url" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-700" :class="social.color">
+            <a v-for="social in profile.socials" :key="social.name" :href="social.url" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-sm text-slate-700" :class="social.color">
               <Icon :name="social.icon" class="w-4 h-4" :class="social.color" />{{ social.name }}
             </a>
           </div>
@@ -76,7 +85,7 @@ profile.sociels = [
                   {{ paper.title }}
                   </h4>
                   <div class="text-slate-500 text-base">
-                  {{ paper.authors }}
+                    <span v-html="highlightAuthor(paper.authors)"></span>
                   </div>
                   <div class="font-semibold text-slate-900 italic">
                   {{ paper.venue }}
@@ -129,8 +138,8 @@ profile.sociels = [
             </div>
             
             <div>
-              <p class="font-bold text-slate-900 text-lg leading-tight">{{ award.title }}</p>
-              <div class="flex flex-wrap items-center gap-x-2 text-slate-600 mt-1">
+              <p class="font-bold text-slate-900 text-sm leading-tight">{{ award.title }}</p>
+              <div class="flex flex-wrap items-center gap-x-2  text-sm text-slate-600 mt-1">
                 <span>{{ award.organization }}</span>
                 <span class="text-slate-300 hidden sm:inline">|</span>
                 <span class="text-slate-500 text-sm">{{ award.year }}</span>

@@ -1,7 +1,7 @@
 export const publications = [
   {
     title: "Efficient Inference for Flow Matching via Unified Path CFG",
-    authors: "*Kosuke Ukita* and Tsuyoshi Okita",
+    authors: "Kosuke Ukita, Tsuyoshi Okita",
     venue: "The 30th Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2026)",
     date: "June 2026",
     location: "Hong Kong, China",
@@ -15,7 +15,7 @@ export const publications = [
   },
   {
     title: "High-Performance Self-Supervised Representation Learning by Joint Training of Flow Matching and Representation Encoder",
-    authors: "*Kosuke Ukita* and Tsuyoshi Okita",
+    authors: "Kosuke Ukita, Tsuyoshi Okita",
     venue: "The 29th International Conference on Artificial Intelligence and Statistics (AISTATS 2026)",
     date: "May 2026",
     location: "Tangier, Morocco",
@@ -30,7 +30,7 @@ export const publications = [
   },
   {
     title: "Foundation Models to Tackle Activity Recognition in Unknown Domain: Sussex-Huawei Locomotion Challenge 2025 Task 2",
-    authors: "Tsuyoshi Okita, *Kosuke Ukita*, Asahi Miyazaki, Daichi Kubota, Jukichi Ota, Naoki Kagiyama, Asahi Nishikawa, Nagayasu Daichi, Syunya Tomitaka, Daisuke Nozaki, Yuki Odo, Raku Yamashita, Xiaolong Ye, Huayu Gao, Kazuki Okahashi, Koki Matsuishi, Masaharu Kagiyama, Kodai Hirata, Haruki Kai, Lin Wang, Hristijan Gjoreski, Mathias Ciliberto, Paula Lago, Kazuya Murao, Daniel Roggen",
+    authors: "Tsuyoshi Okita, Kosuke Ukita, Asahi Miyazaki, Daichi Kubota, Jukichi Ota, Naoki Kagiyama, Asahi Nishikawa, Nagayasu Daichi, Syunya Tomitaka, Daisuke Nozaki, Yuki Odo, Raku Yamashita, Xiaolong Ye, Huayu Gao, Kazuki Okahashi, Koki Matsuishi, Masaharu Kagiyama, Kodai Hirata, Haruki Kai, Lin Wang, Hristijan Gjoreski, Mathias Ciliberto, Paula Lago, Kazuya Murao, Daniel Roggen",
     venue: "Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion '25), pp. 983–991",
     date: "October 2025",
     location: "Espoo, Finland",
@@ -43,7 +43,7 @@ export const publications = [
   },
   {
     title: "Multimodal Foundation Model for Cross-Modal Retrieval and Activity Recognition Tasks",
-    authors: "Koki Matsuishi, *Kosuke Ukita*, Tsuyoshi Okita",
+    authors: "Koki Matsuishi, Kosuke Ukita, Tsuyoshi Okita",
     venue: "International Journal of Activity and Behavior Computing (IJABC), Care XDX Center, Kyushu Institute of Technology, Vol. 2025, No. 3, pp. 1-25",
     date: "November 2025",
     location: "Kitakyushu, Japan",
@@ -57,7 +57,7 @@ export const publications = [
   },
   {
     title: "Energy-Efficient High-Performance Represen-tation Learning for Sensor Data via Flow Matching",
-    authors: "*Kosuke Ukita* and Tsuyoshi Okita",
+    authors: "Kosuke Ukita, Tsuyoshi Okita",
     venue: "The 7th International Symposium on Neuromorphic AI Hardware, Paper No. P-19",
     date: "October 2025",
     location: "Kitakyushu, Japan",
@@ -70,7 +70,7 @@ export const publications = [
   },
   {
     title: "Image Classification Using a Diffusion Model as a PreTraining Model",
-    authors: "*Kosuke Ukita*, Xiaolong Ye, Tsuyoshi Okita",
+    authors: "Kosuke Ukita, Xiaolong Ye, Tsuyoshi Okita",
     venue: "arXiv preprint arXiv:2505.06890",
     date: "May 2025",
     location: "",
@@ -83,7 +83,7 @@ export const publications = [
   },
   {
     title: "AURA-MFM: 詳細な行動理解のためのCLIPを用いたマルチモーダル基盤モデルの構築",
-    authors: "松石康希，*浮田嵩祐*，大北剛",
+    authors: "松石康希, 浮田嵩祐, 大北剛",
     venue: "情報処理学会研究報告(IPSJ SIG Technical Report), Vol. 2025-UBI-85, No. 8",
     date: "February 2025",
     location: "Osaka, Japan",
@@ -97,7 +97,7 @@ export const publications = [
   },
   {
     title: "Improving Human Activity Recognition through Diffusion Models",
-    authors: "*Kosuke Ukita* and Tsuyoshi Okita",
+    authors: "Kosuke Ukita, Tsuyoshi Okita",
     venue: "The International Symposium on Applied Engineering and Sciences (SAES2024), No. p0052",
     date: "November 2024",
     location: "Kitakyushu, Japan",
@@ -110,7 +110,7 @@ export const publications = [
   },
   {
     title: "Ensemble Learning of Models for Human Activity Recognition",
-    authors: "Asahi Miyazaki, *Kosuke Ukita*, Tsuyoshi Okita",
+    authors: "Asahi Miyazaki, Kosuke Ukita, Tsuyoshi Okita",
     venue: "The International Symposium on Applied Engineering and Sciences (SAES2024), No. p0053",
     date: "November 2024",
     location: "Kitakyushu, Japan",
@@ -123,7 +123,7 @@ export const publications = [
   },
   {
     title: "Analysis of Human Activity Recognition by Diffusion Models",
-    authors: "*Kosuke Ukita* and Tsuyoshi Okita",
+    authors: "Kosuke Ukita, Tsuyoshi Okita",
     venue: "Companion of the 2024 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp '24), pp. 458–463",
     date: "October 2024",
     location: "Melbourne, Australia",
@@ -136,7 +136,7 @@ export const publications = [
   },
   {
     title: "表現条件付き潜在拡散モデルと表現学習",
-    authors: "*浮田嵩祐*，Ye Xiaolong，大北剛",
+    authors: "浮田嵩祐, Ye Xiaolong, 大北剛",
     venue: "火の国情報シンポジウム 2024, No. A4-4",
     date: "March 2024",
     location: "Kagoshima, Japan",
@@ -149,7 +149,7 @@ export const publications = [
   },
   {
     title: "Towards LLMs for Sensor Data: Multi-Task Self-Supervised Learning",
-    authors: "Tsuyoshi Okita, *Kosuke Ukita*, Koki Matsuishi, Masaharu Kagiyama, Kodai Hirata, Asahi Miyazaki",
+    authors: "Tsuyoshi Okita, Kosuke Ukita, Koki Matsuishi, Masaharu Kagiyama, Kodai Hirata, Asahi Miyazaki",
     venue: "Adjunct Proceedings of the 2023 ACM International Joint Conference on Pervasive and Ubiquitous Computing & the 2023 ACM International Symposium on Wearable Computing (UbiComp/ISWC '23 Adjunct), pp. 499–504",
     date: "Octover 2023",
     location: "Cancun, Mexico",
