@@ -12,7 +12,11 @@ export default <Config>{
     "./content/**/*.md"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { color } from '~/data/color'
 import { profile } from '~/data/profile'
 import { news } from '~/data/news'
 import { publications } from '~/data/publications'
@@ -29,7 +28,7 @@ useHead({
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
       <div class="max-w-5xl mx-auto px-6 h-12 flex justify-between items-center">
         
-        <NuxtLink to="/" :class="`text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2 hover:text-${color}-600 transition`" @click="closeMenu">
+        <NuxtLink to="/" class="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2 hover:text-primary transition" @click="closeMenu">
           <div class="w-5 h-5 rounded-lg overflow-hidden">
             <img src="/favicon.ico" alt="cat" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/16x16?text=cat'"/>
           </div>
@@ -37,10 +36,10 @@ useHead({
         </NuxtLink>
         
         <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-          <NuxtLink to="/" :class="`hover:text-${color}-600 transition flex items-center gap-1`"><Icon name="heroicons:home" class="w-4 h-4" /> Home </NuxtLink>
-          <NuxtLink to="/cv" :class="`hover:text-${color}-600 transition flex items-center gap-1`"><Icon name="heroicons:document-text" class="w-4 h-4" /> CV </NuxtLink>
-          <NuxtLink to="/publications" :class="`hover:text-${color}-600 transition flex items-center gap-1`"><Icon name="heroicons:book-open" class="w-4 h-4" /> Publications </NuxtLink>
-          <NuxtLink to="/memo" :class="`hover:text-${color}-600 transition flex items-center gap-1`"><Icon name="heroicons:pencil" class="w-4 h-4" /> Memo </NuxtLink>
+          <NuxtLink to="/" class="hover:text-primary transition flex items-center gap-1"><Icon name="heroicons:home" class="w-4 h-4" /> Home </NuxtLink>
+          <NuxtLink to="/cv" class="hover:text-primary transition flex items-center gap-1"><Icon name="heroicons:document-text" class="w-4 h-4" /> CV </NuxtLink>
+          <NuxtLink to="/publications" class="hover:text-primary transition flex items-center gap-1"><Icon name="heroicons:book-open" class="w-4 h-4" /> Publications </NuxtLink>
+          <NuxtLink to="/memo" class="hover:text-primary transition flex items-center gap-1"><Icon name="heroicons:pencil" class="w-4 h-4" /> Memo </NuxtLink>
         </nav>
 
         <button @click="toggleMenu" class="md:hidden text-slate-600 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition">
@@ -51,10 +50,10 @@ useHead({
 
       <div v-show="isMenuOpen" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-slate-100 shadow-lg">
         <nav class="flex flex-col p-4 space-y-2 text-slate-600 font-medium">
-          <NuxtLink to="/" @click="closeMenu" :class="`block py-3 px-4 rounded-lg hover:bg-${color}-50 hover:text-${color}-600 transition flex items-center gap-2`"><Icon name="heroicons:home" class="w-5 h-5" /> Home </NuxtLink>
-          <NuxtLink to="/cv" @click="closeMenu" :class="`block py-3 px-4 rounded-lg hover:bg-${color}-50 hover:text-${color}-600 transition flex items-center gap-2`"><Icon name="heroicons:document-text" class="w-5 h-5" /> CV </NuxtLink>
-          <NuxtLink to="/publications" @click="closeMenu" :class="`block py-3 px-4 rounded-lg hover:bg-${color}-50 hover:text-${color}-600 transition flex items-center gap-2`"><Icon name="heroicons:book-open" class="w-5 h-5" /> Publications </NuxtLink>
-          <NuxtLink to="/memo" @click="closeMenu" :class="`block py-3 px-4 rounded-lg hover:bg-${color}-50 hover:text-${color}-600 transition flex items-center gap-2`"><Icon name="heroicons:pencil" class="w-5 h-5" /> Memo </NuxtLink>
+          <NuxtLink to="/" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-primary/5 hover:text-primary transition flex items-center gap-2"><Icon name="heroicons:home" class="w-5 h-5" /> Home </NuxtLink>
+          <NuxtLink to="/cv" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-primary/5 hover:text-primary transition flex items-center gap-2"><Icon name="heroicons:document-text" class="w-5 h-5" /> CV </NuxtLink>
+          <NuxtLink to="/publications" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-primary/5 hover:text-primary transition flex items-center gap-2"><Icon name="heroicons:book-open" class="w-5 h-5" /> Publications </NuxtLink>
+          <NuxtLink to="/memo" @click="closeMenu" class="block py-3 px-4 rounded-lg hover:bg-primary/5 hover:text-primary transition flex items-center gap-2"><Icon name="heroicons:pencil" class="w-5 h-5" /> Memo </NuxtLink>
         </nav>
       </div>
     </header>

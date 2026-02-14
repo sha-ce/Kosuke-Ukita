@@ -24,14 +24,14 @@ const highlightAuthor = (authors: string) => {
       </div>
     </div>
     <section id="publications" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:book-open" class="text-orange-500" /> Publications </h3>
+        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:book-open" class="text-primary" /> Publications </h3>
         
         <div class="space-y-2">
           <article v-for="(paper, index) in publications" :key="index" 
-                   class="flex flex-col group px-6 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm hover:border-orange-200 hover:shadow-md transition-all duration-300">
+                   class="flex flex-col group px-6 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm hover:border-primary/20 hover:shadow-md transition-all duration-300">
             
             <div class="space-y-1 mb-2">
-              <h4 class="text-l font-bold text-slate-900 leading-snug group-hover:text-orange-600 transition-colors">
+              <h4 class="text-l font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">
                 {{ paper.title }}
               </h4>
               <div class="text-slate-500 text-base">
@@ -53,7 +53,7 @@ const highlightAuthor = (authors: string) => {
                   {{ paper.location }}
                 </span>
                 <div class="flex gap-2">
-                  <span v-if="paper.type" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-50 text-orange-700 border border-orange-100">
+                  <span v-if="paper.type" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/5 text-primary border border-primary/10">
                     {{ paper.type }}
                   </span>
                   <span v-if="paper.note" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-100">
@@ -63,7 +63,7 @@ const highlightAuthor = (authors: string) => {
               </div>
               <div class="flex flex-wrap items-center gap-x-2 gap-y-2 mt-2 text-sm text-slate-500">
                 <a v-for="link in paper.links" :key="link.name" :href="link.url" 
-                  class="flex items-center gap-2 text-sm font-bold text-slate-700 border border-slate-300 px-2 py-1 rounded-lg hover:border-orange-600 hover:text-orange-600 hover:bg-orange-50 transition bg-slate-50">
+                  class="flex items-center gap-2 text-sm font-bold text-slate-700 border border-slate-300 px-2 py-1 rounded-lg hover:border-primary hover:text-primary hover:bg-primary/5 transition bg-slate-50">
                   <Icon :name="link.icon" class="w-4 h-4" />
                   {{ link.name }}
                 </a>
