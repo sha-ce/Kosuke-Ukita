@@ -1,48 +1,29 @@
-
 <script setup lang="ts">
 import { profile } from '~/data/profile'
-import { news } from '~/data/news'
 import { publications } from '~/data/publications'
-import { awards } from '~/data/awards'
-import { education } from '~/data/education'
-import { skills } from '~/data/skills'
+
+// 名前強調関数
+const highlightAuthor = (authors: string) => {
+  return authors.replace("Kosuke Ukita", `<span class="font-bold underline decoration-blue-400">Kosuke Ukita</span>`);
+}
 </script>
 
 <template>
-  <div class="min-h-screen bg-white text-slate-800 font-sans selection:bg-orange-100">
-    <main class="max-w-5xl mx-auto px-6 py-12 space-y-20">
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    
+    <div class="flex items-center gap-6 mb-12 border-b border-slate-100 pb-8">
+      <div class="w-20 h-20 rounded-full overflow-hidden shadow-xl border-2 border-slate-100 shrink-0">
+        <img src="/assets/photo.png" alt="Profile" class="w-full h-full object-cover" 
+             onerror="this.onerror=null; this.src='https://placehold.co/200x200?text=Photo'"/>
+      </div>
       
-      <section id="about" class="grid md:grid-cols-12 gap-10 items-center scroll-mt-24">
-        <div class="md:col-span-4 flex justify-center md:justify-start">
-          <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-white rotate-3 hover:rotate-0 transition duration-500">
-            <img src="/assets/photo.png" alt="Profile" class="w-full h-full object-cover bg-slate-200" 
-                 onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Photo'"/>
-          </div>
-        </div>
-        
-        <div class="md:col-span-8 space-y-5">
-          <div>
-            <h1 class="text-2xl md:text-2xl font-extrabold text-slate-800 tracking-tight mb-2">{{ profile.name }}</h1>
-            <p class="text-xl font-bold">浮田 嵩祐</p>
-            <p class="text-xl text-orange-600 font-medium">{{ profile.role }}</p>
-            <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:building-library" /> {{ profile.affiliation }}</p>
-            <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:map-pin" />Fukuoka, Japan</p>
-          </div>
-          
-          <p class="leading-relaxed text-slate-600 whitespace-pre-line text-lg">{{ profile.bio }}</p>
-          
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a :href="`mailto:${profile.email}`" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-700 hover:bg-slate-200 transition text-sm font-medium"><Icon name="heroicons:envelope" class="w-4 h-4" /> Email : {{ profile.email }} </a>
-          </div>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a v-for="social in profile.socials" :key="social.name" :href="social.url" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-700" :class="social.color">
-              <Icon :name="social.icon" class="w-4 h-4" :class="social.color" />{{ social.name }}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="publications" class="scroll-mt-24">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900">{{ profile.name }}</h1>
+        <p class="text-slate-500 text-sm flex items-center gap-2"><Icon name="heroicons:academic-cap" /> {{ profile.role }}</p>
+        <p class="text-slate-500 text-sm flex items-center gap-2"><Icon name="heroicons:building-library" />{{ profile.affiliation }}</p>
+      </div>
+    </div>
+    <section id="publications" class="scroll-mt-24">
         <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:book-open" class="text-orange-500" /> Publications </h3>
         
         <div class="space-y-2">
@@ -93,23 +74,5 @@ import { skills } from '~/data/skills'
         </div>
       </section>
 
-    </main>
-  </div>
+  </main>
 </template>
-
-<style>
-/* カスタムスクロールバー（Webkit系ブラウザ用） */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-</style>

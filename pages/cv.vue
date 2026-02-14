@@ -1,53 +1,52 @@
 
 <script setup lang="ts">
 import { profile } from '~/data/profile'
-import { news } from '~/data/news'
 import { publications } from '~/data/publications'
 import { awards } from '~/data/awards'
 import { education } from '~/data/education'
+import { experience } from '~/data/experience'
 import { skills } from '~/data/skills'
 </script>
 
 <template>
   <div class="min-h-screen bg-white text-slate-800 font-sans selection:bg-orange-100">
-    <main class="max-w-5xl mx-auto px-6 py-12 space-y-20">
-      
-      <section id="about" class="grid md:grid-cols-12 gap-10 items-center scroll-mt-24">
-        <div class="md:col-span-4 flex justify-center md:justify-start">
-          <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-white rotate-3 hover:rotate-0 transition duration-500">
-            <img src="/assets/photo.png" alt="Profile" class="w-full h-full object-cover bg-slate-200" 
-                 onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Photo'"/>
-          </div>
-        </div>
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
+    
+    <header class="flex flex-col sm:flex-row gap-8 items-start border-b-2 border-slate-200 pb-8">
+      <div class="w-32 h-32 rounded-lg overflow-hidden border border-slate-200 shadow-xl shrink-0">
+         <img src="/assets/photo.png" alt="Profile" class="w-full h-full object-cover" 
+              onerror="this.onerror=null; this.src='https://placehold.co/300x400?text=Photo'"/>
+      </div>
+
+      <div class="flex-1 space-y-2">
+        <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">
+          {{ profile.name }}
+        </h1>
         
-        <div class="md:col-span-8 space-y-5">
-          <div>
-            <h1 class="text-2xl md:text-2xl font-extrabold text-slate-800 tracking-tight mb-2">{{ profile.name }}</h1>
-            <p class="text-xl font-bold">浮田 嵩祐</p>
-            <p class="text-xl text-orange-600 font-medium">{{ profile.role }}</p>
-            <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:building-library" /> {{ profile.affiliation }}</p>
-            <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:map-pin" />Fukuoka, Japan</p>
-          </div>
-          
-          <p class="leading-relaxed text-slate-600 whitespace-pre-line text-lg">{{ profile.bio }}</p>
-          
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a :href="`mailto:${profile.email}`" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-700 hover:bg-slate-200 transition text-sm font-medium"><Icon name="heroicons:envelope" class="w-4 h-4" /> Email : {{ profile.email }} </a>
-          </div>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a v-for="social in profile.socials" :key="social.name" :href="social.url" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-slate-700" :class="social.color">
-              <Icon :name="social.icon" class="w-4 h-4" :class="social.color" />{{ social.name }}
-            </a>
-          </div>
+        <div class="text-slate-500 space-y-1">
+          <p class="text-base font-bold text-orange-500">MSc student (M2), full-time </p>
+          <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:building-library" /> {{ profile.affiliation }} </p>
+          <p class="text-sm">Gender: Male</p>
+          <p class="text-sm">Nationality: Japanese</p>
         </div>
-      </section>
+
+        <div class="flex flex-wrap gap-4 text-sm text-slate-500 pt-2">
+          <span class="flex items-center gap-1">
+            <Icon name="heroicons:envelope" /> {{ profile.email }}
+          </span>
+          <a :href="profile.socials.find(s => s.name === 'GitHub')?.url" target="_blank" class="flex items-center gap-1 hover:text-orange-600"><Icon name="uil:github" /></a>
+          <a :href="profile.socials.find(s => s.name === 'Scholar')?.url" target="_blank" class="flex items-center gap-1 hover:text-orange-600"><Icon name="simple-icons:googlescholar" /></a>
+          <a :href="profile.socials.find(s => s.name === 'LinkedIn')?.url" target="_blank" class="flex items-center gap-1 hover:text-orange-600"><Icon name="simple-icons:linkedin" /></a>
+        </div>
+      </div>
+    </header>
 
       <section id="education" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-6">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
           <Icon name="heroicons:academic-cap" class="text-orange-500" /> Education
         </h3>
         
-        <div class="space-y-8 border-l-2 border-slate-100 ml-3 pl-8 relative">
+        <div class="space-y-4 border-l-2 border-slate-100 ml-3 pl-4 relative">
           <div v-for="(edu, index) in education" :key="index" class="relative">
             <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-white bg-orange-500 shadow-sm"></span>
             
@@ -61,8 +60,25 @@ import { skills } from '~/data/skills'
         </div>
       </section>
 
+      <section id="experience" class="scroll-mt-24">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+          <Icon name="heroicons:shopping-bag" class="text-orange-500" /> Work Experience
+        </h3>
+        
+        <div class="space-y-4 border-l-2 border-slate-100 ml-3 pl-4 relative">
+          <div v-for="(exp, index) in experience" :key="index" class="relative">
+            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-white bg-orange-500 shadow-sm"></span>
+            
+            <h4 class="text-lg font-bold text-slate-900">{{ exp.name }}</h4>
+            <p class="text-sm text-slate-500 mt-1">{{ exp.year }}</p>
+            <p v-if="exp.description1" class="text-sm text-slate-600 mt-2 bg-slate-50 inline-block px-2 py-1 rounded">{{ exp.description1 }}</p>
+            <p v-if="exp.description2" class="text-sm text-slate-600 mt-2 bg-slate-50 inline-block px-2 py-1 rounded">{{ exp.description2 }}</p>
+          </div>
+        </div>
+      </section>
+
       <section id="publications" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:book-open" class="text-orange-500" /> Publications </h3>
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:book-open" class="text-orange-500" /> Publications </h3>
         
         <div class="space-y-2">
           <article v-for="(paper, index) in publications" :key="index" 
@@ -113,7 +129,7 @@ import { skills } from '~/data/skills'
       </section>
 
       <section id="awards" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-6">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
           <Icon name="heroicons:trophy" class="text-orange-500" /> Awards
         </h3>
         
@@ -141,7 +157,7 @@ import { skills } from '~/data/skills'
       
 
       <section id="skills" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-6">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
           <Icon name="heroicons:cpu-chip" class="text-orange-500" /> Skills
         </h3>
         

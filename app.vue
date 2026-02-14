@@ -15,9 +15,6 @@ import { skills } from '~/data/skills'
           <NuxtLink to="/" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:home"/> Home </NuxtLink>
           <NuxtLink to="/publications" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:book-open"/> Pubilcations </NuxtLink>
           <NuxtLink to="/cv" class="hover:text-orange-600 transition flex items-center gap-1"><Icon name="heroicons:document-text"/> CV </NuxtLink>
-          <a href="#awards" class="hover:text-orange-600 transition"><Icon name="heroicons:trophy" /> Awards </a>
-          <a href="#education" class="hover:text-orange-600 transition"><Icon name="heroicons:academic-cap" /> Education </a>
-          <a href="#skills" class="hover:text-orange-600 transition"><Icon name="heroicons:cpu-chip" /> Skills </a>
         </nav>
         <button class="md:hidden text-slate-600"><Icon name="heroicons:bars-3" class="w-6 h-6" /></button>
       </div>
@@ -30,7 +27,12 @@ import { skills } from '~/data/skills'
 
         <div class="text-center md:text-left">
           <p class="font-bold text-slate-700 text-lg">{{ profile.name }}</p>
-          <p class="text-slate-500 text-sm mt-1">I love cats.</p>
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded-lg overflow-hidden">
+                <img src="/favicon.ico" alt="cat" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/16x16?text=cat'"/>
+            </div>
+            <p class="text-slate-500 text-sm mt-1">I love cats.</p>
+          </div>
         </div>
         
         <div class="flex gap-6">

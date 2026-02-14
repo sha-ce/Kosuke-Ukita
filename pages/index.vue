@@ -5,7 +5,17 @@ import { news } from '~/data/news'
 import { publications } from '~/data/publications'
 import { awards } from '~/data/awards'
 import { education } from '~/data/education'
-import { skills } from '~/data/skills'
+
+profile.sociels = [
+    {name: "GitHub", url: "https://github.com/Kosuke-Ukita", icon: "uil:github", color: "hover:text-gray-300 transition"},
+    {name: "Hugging Face", url: "https://huggingface.co/sha-ce", icon: "simple-icons:huggingface", color: "hover:text-yellow-500 transition"},
+    {name: "Google Scholar", url: "https://scholar.google.com/citations?user=rmfjRpEAAAAJ", icon: "simple-icons:googlescholar", color: "hover:text-blue-600 transition"},
+    {name: "ORCID", url: "https://orcid.org/0009-0008-3325-1363", icon: "simple-icons:orcid", color: "hover:text-green-600 transition"},
+    {name: "LinkedIn", url: "https://www.linkedin.com/in/ukita000", icon: "uil:linkedin", color: "hover:text-blue-700 transition"},
+    {name: "X", url: "./", icon: "fa6-brands:x-twitter", color: "hover:text-gray-300 transition"},
+    {name: "Instagram", url: "./", icon: "simple-icons:instagram", color: "hover:text-pink-500 transition"},
+    {name: "YouTube", url: "./", icon: "simple-icons:youtube", color: "hover:text-red-500 transition"},
+]
 </script>
 
 <template>
@@ -127,26 +137,6 @@ import { skills } from '~/data/skills'
               </div>
             </div>
             
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-6">
-          <Icon name="heroicons:cpu-chip" class="text-orange-500" /> Skills
-        </h3>
-        
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div v-for="(skillGroup, index) in skills" :key="index" class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-3 border-b border-slate-100 pb-2">
-              {{ skillGroup.category }}
-            </h4>
-            <div class="flex flex-wrap gap-2">
-              <span v-for="item in skillGroup.items" :key="item" 
-                    class="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full font-medium">
-                {{ item }}
-              </span>
-            </div>
           </div>
         </div>
       </section>
