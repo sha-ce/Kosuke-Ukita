@@ -1,14 +1,14 @@
 export const education = [
-  { 
-    degree: "PhD in Creative Informatics", 
-    school: "Kyushu Institute of Technology, Graduate School of Computer Science and Systems Engineering", 
-    year: "Apr. 2026 - Present (expexted)", 
-    description: "Advisor: Assoc. Prof. Tsuyoshi Okita" 
-  },
+//   { 
+//     degree: "PhD in Creative Informatics", 
+//     school: "Kyushu Institute of Technology, Graduate School of Computer Science and Systems Engineering", 
+//     year: "Apr. 2026 - Present (expected)", 
+//     description: "Advisor: Assoc. Prof. Tsuyoshi Okita" 
+//   },
   { 
     degree: "MSc in Creative Informatics", 
     school: "Kyushu Institute of Technology, Graduate School of Computer Science and Systems Engineering", 
-    year: "Apr. 2024 - Mar. 2026 (expexted)", 
+    year: "Apr. 2024 - Mar. 2026 (expected)", 
     description: "GPA: 3.6 / 4.0" 
   },
   { 
