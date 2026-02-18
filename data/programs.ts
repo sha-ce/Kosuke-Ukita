@@ -1,10 +1,18 @@
 export const programs = [
   {
+    title: "Reviewer zero",
+    url: "https://reviewer-zero.streamlit.app/",
+    githubUrl: "https://github.com/Kosuke-Ukita/reviewer-zero",
+    thumbnail: "assets/reviewer-zero.png",
+    description: "「Reviewer zero」は，LLMを使用し，論文査読とアイデア出しを加速させるAIツールです．PDFをアップロードするだけで，トップカンファレンス基準の査読レポートを生成します．論文の限界点を見抜き，次に取るべき具体的な研究テーマを提案します．読み込んだ論文に対して，「この数式の意味は？」といった質問が可能です．大量にある論文を要約し，インプット効率を向上させます．さらに，最新論文の展望を調査することに特化しているため，今後取り組むべき研究の方向性を整理することができます．",
+    tags: [],
+  },
+  {
     title: "パーソナル サイト",
     url: "https://kosuke-ukita.github.io/",
     githubUrl: "https://github.com/Kosuke-Ukita/kosuke-ukita.github.io/",
     thumbnail: "assets/photo.jpg",
-    description: "ウェブサイトはindex.htmlさえあれば動きますが，本サイトはNuxt.jsというフレームワークで作りました．めんどくさいことをしています．Type Script / TailwindCSSで書いてまして，このようなデザインとして完成しました．ブログなどはWordPress等を用いれば簡単にできますが，このサイトもマークダウンを追加するだけで記事を追加できるようにCMS風に拡張しました．余談ですが，本サイトのアクセントカラーは#C5732Fというオレンジ系の色です．",
+    description: "個人サイトです．ウェブサイトはindex.htmlさえあれば動きますが，本サイトはNuxt.jsというフレームワークで作りました．めんどくさいことをしています．Type Script / TailwindCSSで書いてまして，このようなデザインとして完成しました．ブログなどはWordPress等を用いれば簡単にできますが，このサイトもマークダウンを追加するだけで記事を追加できるようにCMS風に拡張しました．余談ですが，本サイトのアクセントカラーは#C5732Fというオレンジ系の色です．",
     tags: [],
   },
   {
