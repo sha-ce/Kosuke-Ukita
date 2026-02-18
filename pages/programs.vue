@@ -23,7 +23,7 @@ import { programs } from '~/data/programs'
       <div v-for="program in programs" :key="program.id" class="bg-white rounded-lg border border-slate-200 overflow-hidden hover:border-primary/60 hover:shadow-lg transition-shadow group">
       <a :href="program.url" target="_blank" rel="noopener noreferrer" class="block transition-colors">
       <div class="relative w-full overflow-hidden">
-      <div v-if="program.thumbnail" class="absolute inset-0 bg-slate-100"><img :src="program.thumbnail" :alt="program.title" class="w-full h-full object-cover opacity-20" /></div>
+      <div v-if="program.thumbnail" class="absolute inset-0 bg-slate-100"><img :src="program.thumbnail" :alt="program.title" class="w-full h-full object-cover opacity-25" /></div>
       <div class="relative p-6 h-full flex flex-col justify-between">
         <div>
         <div class="flex items-start justify-between mb-3">
