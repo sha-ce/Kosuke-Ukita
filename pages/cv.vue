@@ -21,7 +21,7 @@ const highlightAuthor = (authors: string) => {
     
     <header class="flex flex-col sm:flex-row gap-8 items-start border-b-2 border-slate-100 pb-2">
       <div class="w-32 h-32 rounded-lg overflow-hidden border border-slate-200 shadow-xl shrink-0">
-         <img src="/assets/photo.png" alt="Profile" class="w-full h-full object-cover" 
+         <img src="/assets/photo.jpg" alt="Profile" class="w-full h-full object-cover" 
               onerror="this.onerror=null; this.src='https://placehold.co/300x400?text=Photo'"/>
       </div>
 

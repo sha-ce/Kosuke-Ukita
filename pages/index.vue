@@ -32,7 +32,7 @@ const highlightAuthor = (authors: string) => {
       <section id="about" class="grid md:grid-cols-12 gap-10 items-center scroll-mt-24">
         <div class="md:col-span-4 flex justify-center md:justify-start">
           <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-white rotate-3 hover:rotate-0 transition duration-500">
-            <img src="/assets/photo.png" alt="Profile" class="w-full h-full object-cover bg-slate-200" 
+            <img src="/assets/photo.jpg" alt="Profile" class="w-full h-full object-cover bg-slate-200" 
                  onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=Photo'"/>
           </div>
         </div>
