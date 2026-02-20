@@ -21,7 +21,7 @@ import { programs } from '~/data/programs'
 
       <div v-for="program in programs" :key="program.id" class="overflow-hidden relative group">
         <div v-if="program.thumbnail" class="absolute inset-0 -z-10 width=100%">
-          <img :src="program.thumbnail" :alt="program.title" class="w-full h-full object-cover opacity-100 scale-100" />
+          <img :src="program.thumbnail" :alt="program.title" class="w-full h-full object-cover opacity-50 scale-100" />
         </div>
         
         <div class="relative px-8 py-4 flex flex-col gap-3">
