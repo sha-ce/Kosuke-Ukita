@@ -21,11 +21,11 @@ import { programs } from '~/data/programs'
 
       <div v-for="program in programs" :key="program.id" class="overflow-hidden relative group">
         <div v-if="program.thumbnail" class="absolute inset-0 -z-10 width=100%">
-          <img :src="program.thumbnail" :alt="program.title" class="w-full h-full object-cover opacity-50 scale-100" />
+          <img :src="program.thumbnail" :alt="program.title" class="w-full h-full object-cover opacity-100 scale-100" />
         </div>
         
         <div class="relative px-8 py-4 flex flex-col gap-3">
-          <div class="flex flex-col gap-8 p-6 rounded-lg bg-white/5 backdrop-blur-none border border-white/20 shadow-[inset_0_2px_0_rgba(255,255,255,0.3),0_4px_12px_rgba(0,0,0,0.15)] group-hover:backdrop-blur-sm transition-all duration-300">
+          <div class="flex flex-col gap-8 p-6 rounded-lg bg-white/5 backdrop-blur-[2px] border border-white/20 shadow-[inset_0_2px_0_rgba(255,255,255,0.3),0_4px_12px_rgba(0,0,0,0.15)] group-hover:backdrop-blur-[5px] group-hover:bg-white/20 transition-all duration-300">
             <div class="flex items-start justify-between">
               <a :href="program.url" target="_blank" rel="noopener noreferrer" class="block">
                 <h4 class="text-xl font-semibold text-black text-shadow-md underline group-hover:drop-shadow-lg hover:text-primary transition-all duration-300">{{ program.title }}</h4>

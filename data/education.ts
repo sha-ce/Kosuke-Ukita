@@ -21,6 +21,6 @@ export const education = [
     degree: "High School Diploma", 
     school: "Kanonji Daiichi High School, Science and Mathematics Course", 
     year: "Apr. 2017 - Mar. 2020", 
-    description: "GPA: 5.0 / 5.0" 
+    description: "GPA: 4.9 / 5.0" 
   },
 ]
