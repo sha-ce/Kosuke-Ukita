@@ -73,54 +73,34 @@ const highlightAuthor = (authors: string) => {
       </section>
 
       <section id="publications" class="scroll-mt-24">
-        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-8"><Icon name="heroicons:book-open" class="text-primary/90" /> Publications </h3>
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:book-open" class="text-primary" /> Publications </h3>
         <p class="text-sm text-slate-500 mb-4">Recent 3 publications</p>
         
-        <div class="space-y-2">
-          <article v-for="(paper, index) in publications.slice(0, 3)" :key="index"
-                class="flex flex-col group px-6 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
-                
-                <div class="space-y-1 mb-2">
-                  <h4 class="text-l font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">
-                  {{ paper.title }}
-                  </h4>
-                  <div class="text-slate-500 text-base">
-                    <span v-html="highlightAuthor(paper.authors)"></span>
-                  </div>
-                  <div class="font-semibold text-slate-900 italic">
-                  {{ paper.venue }}
-                  </div>
-                </div>
+        <div class="space-y-2 ml-0 pl-2 relative">
+          <article v-for="(paper, index) in publications.slice(0, 3)" :key="index" class="relative group border-l-2 border-primary/50 px-3 py-2 rounded-md hover:shadow-md transition-all duration-300">
+            <p class="absolute -left-[32px] text-sm text-primary/90 font-bold">[{{ index+1 }}]</p>
+            
+            <div class="flex justify-between">
+              <h4 class="text-md font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">{{ paper.title }}</h4>
+              <div class="flex gap-1 shrink-0 self-start">
+                <span v-if="paper.type" class="inline-flex items-center px-1 py-0.5 rounded text-xs font-medium bg-primary/5 text-primary border border-primary/10 whitespace-nowrap">{{ paper.type }}</span>
+                <span v-if="paper.note" class="inline-flex items-center px-1 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-100 whitespace-nowrap">{{ paper.note }}</span>
+              </div>
+            </div>
+            <div class="text-slate-500 text-sm"><span v-html="highlightAuthor(paper.authors)"></span></div>
+            <div class="text-xs font-semibold text-slate-900 italic">{{ paper.venue }}</div>
 
-                <div class="border-t border-slate-100 pt-1 mb-1">
-                  <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
-                  <span class="flex items-center gap-1.5">
-                    <Icon name="heroicons:calendar" class="w-4 h-4 text-slate-400" />
-                    {{ paper.date }}
-                  </span>
-                  <span class="flex items-center gap-1.5" v-if="paper.location">
-                    <Icon name="heroicons:map-pin" class="w-4 h-4 text-slate-400" />
-                    {{ paper.location }}
-                  </span>
-                  <div class="flex gap-2">
-                    <span v-if="paper.type" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/5 text-primary border border-primary/10">
-                    {{ paper.type }}
-                    </span>
-                    <span v-if="paper.note" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-100">
-                    {{ paper.note }}
-                    </span>
-                  </div>
-                  </div>
-                  <div class="flex flex-wrap items-center gap-x-2 gap-y-2 mt-2 text-sm text-slate-500">
-                  <a v-for="link in paper.links" :key="link.name" :href="link.url" 
-                    class="flex items-center gap-2 text-sm font-bold text-slate-700 border border-slate-300 px-2 py-1 rounded-lg hover:border-primary hover:text-primary hover:bg-primary/5 transition bg-slate-5`">
-                    <Icon :name="link.icon" class="w-4 h-4" />
-                    {{ link.name }}
-                  </a>
-                  </div>
-                </div>
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-500 border-t border-slate-100 pt-1 mb-1">
+              <span class="text-xs flex items-center gap-1"><Icon name="heroicons:calendar" class="w-4 h-4 text-slate-400" />{{ paper.date }}</span>
+              <span class="text-xs flex items-center gap-1" v-if="paper.location"><Icon name="heroicons:map-pin" class="w-4 h-4 text-slate-400" />{{ paper.location }}</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-1 mt-1text-slate-500">
+              <a v-for="link in paper.links" :key="link.name" :href="link.url" class="flex items-center gap-1 text-xs font-bold text-slate-700 border border-slate-300 px-2 py-1 rounded-lg hover:border-primary hover:text-primary hover:bg-primary/5 transition bg-slate-50">
+                <Icon :name="link.icon" class="w-4 h-4" />{{ link.name }}
+              </a>
+            </div>
 
-                </article>
+          </article>
         </div>
       </section>
 

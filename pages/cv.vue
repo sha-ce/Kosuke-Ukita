@@ -33,8 +33,9 @@ const highlightAuthor = (authors: string) => {
         <div class="text-slate-500 space-y-1">
           <p class="text-base font-bold text-primary">MSc student (M2), full-time </p>
           <p class="text-slate-500 flex items-center gap-2"><Icon name="heroicons:building-library" /> {{ profile.affiliation }} </p>
-          <p class="text-sm">Department of Creative Informatics</p>
-          <p class="text-sm">Nationality: Japanese</p>
+          <p class="text-sm">Department of Creative Informatics, Graduate School of Computer Science and Systems Engineering</p>
+          <!-- <p class="text-sm">Gender: Male</p> -->
+          <!-- <p class="text-sm">Nationality: Japanese</p> -->
         </div>
 
         <div class="flex flex-wrap gap-4 text-sm text-slate-500 py-2">
@@ -49,37 +50,38 @@ const highlightAuthor = (authors: string) => {
     </header>
 
       <section id="education" class="scroll-mt-24">
-        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
-          <Icon name="heroicons:academic-cap" class="text-primary" /> Education
-        </h3>
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:academic-cap" class="text-primary" />Education</h3>
         
         <div class="space-y-4 border-l-2 border-slate-100 ml-3 pl-4 relative">
           <div v-for="(edu, index) in education" :key="index" class="relative">
-            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-white bg-primary shadow-sm"></span>
+            <span class="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-none bg-primary shadow-sm"></span>
             
-            <h4 class="text-lg font-bold text-slate-900">{{ edu.degree }}</h4>
-            <p class="text-sm text-slate-400 mt-1">| {{ edu.year }}</p>
-            <p class="text-slate-700">{{ edu.school }}</p>
-            <p v-if="edu.description" class="text-sm text-slate-600 mt-2 bg-slate-50 inline-block px-2 py-1 rounded">
-              {{ edu.description }}
-            </p>
+            <div class="flex justify-between">
+              <h4 class="text-md font-bold text-slate-900">{{ edu.degree }}</h4>
+              <p class="text-sm text-slate-400 mt-1">| {{ edu.year }}</p>
+            </div>
+            <p class="text-slate-500">{{ edu.school }}</p>
+            <p v-if="edu.depart" class="text-sm text-slate-500">{{ edu.depart }}</p>
+            <p v-if="edu.thesis" class="text-sm text-slate-500">Thesis: "{{ edu.thesis }}"</p>
+            <p v-if="edu.description" class="text-xs text-slate-400 bg-slate-50 inline-block p-1 my-0 rounded">{{ edu.description }}</p>
           </div>
         </div>
       </section>
 
       <section id="experience" class="scroll-mt-24">
-        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
-          <Icon name="heroicons:shopping-bag" class="text-primary" /> Work Experience
-        </h3>
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:shopping-bag" class="text-primary" />Work Experience</h3>
         
         <div class="space-y-4 border-l-2 border-slate-100 ml-3 pl-4 relative">
           <div v-for="(exp, index) in experience" :key="index" class="relative">
-            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-white bg-primary shadow-sm"></span>
+            <span class="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-2 border-primary bg-white shadow-sm"></span>
             
-            <h4 class="text-lg font-bold text-slate-900">{{ exp.name }}</h4>
-            <p class="text-sm text-slate-400 mt-1">| {{ exp.year }}</p>
-            <p v-if="exp.description1" class="text-sm text-slate-600 mt-2 bg-slate-50 inline-block px-2 py-1 rounded">{{ exp.description1 }}</p>
-            <p v-if="exp.description2" class="text-sm text-slate-600 mt-2 bg-slate-50 inline-block px-2 py-1 rounded">{{ exp.description2 }}</p>
+            <div class="flex justify-between">
+              <h4 class="text-lg font-bold text-slate-900">{{ exp.name }}</h4>
+              <p class="text-sm text-slate-400 mt-1">| {{ exp.year }}</p>
+            </div>
+            <div v-for="(d, i) in exp.descriptions" :key="i">
+              <p class="text-sm text-slate-500">{{ d }}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -87,48 +89,29 @@ const highlightAuthor = (authors: string) => {
       <section id="publications" class="scroll-mt-24">
         <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:book-open" class="text-primary" /> Publications </h3>
         
-        <div class="space-y-2">
-          <article v-for="(paper, index) in publications" :key="index" 
-                   class="flex flex-col group px-6 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+        <div class="space-y-2 ml-0 pl-2 relative">
+          <!-- <article v-for="(paper, index) in publications" :key="index" class="flex flex-col group px-6 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"> -->
+          <article v-for="(paper, index) in publications" :key="index" class="relative group border-l-2 border-primary/50 px-3 py-2 rounded-md hover:shadow-md transition-all duration-300">
+            <p class="absolute -left-[32px] text-sm text-primary/90 font-bold">[{{ index+1 }}]</p>
             
-            <div class="space-y-1 mb-2">
-              <h4 class="text-l font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">
-                {{ paper.title }}
-              </h4>
-              <div class="text-slate-500 text-base">
-                <span v-html="highlightAuthor(paper.authors)"></span>
-              </div>
-              <div class="font-semibold text-slate-900 italic">
-                {{ paper.venue }}
+            <div class="flex justify-between">
+              <h4 class="text-md font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">{{ paper.title }}</h4>
+              <div class="flex gap-1 shrink-0 self-start">
+                <span v-if="paper.type" class="inline-flex items-center px-1 py-0.5 rounded text-xs font-medium bg-primary/5 text-primary border border-primary/10 whitespace-nowrap">{{ paper.type }}</span>
+                <span v-if="paper.note" class="inline-flex items-center px-1 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-100 whitespace-nowrap">{{ paper.note }}</span>
               </div>
             </div>
+            <div class="text-slate-500 text-sm"><span v-html="highlightAuthor(paper.authors)"></span></div>
+            <div class="text-xs font-semibold text-slate-900 italic">{{ paper.venue }}</div>
 
-            <div class="border-t border-slate-100 pt-1 mb-1">
-              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
-                <span class="flex items-center gap-1.5">
-                  <Icon name="heroicons:calendar" class="w-4 h-4 text-slate-400" />
-                  {{ paper.date }}
-                </span>
-                <span class="flex items-center gap-1.5" v-if="paper.location">
-                  <Icon name="heroicons:map-pin" class="w-4 h-4 text-slate-400" />
-                  {{ paper.location }}
-                </span>
-                <div class="flex gap-2">
-                  <span v-if="paper.type" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/5 text-primary border border-primary/10">
-                    {{ paper.type }}
-                  </span>
-                  <span v-if="paper.note" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-100">
-                    {{ paper.note }}
-                  </span>
-                </div>
-              </div>
-              <div class="flex flex-wrap items-center gap-x-2 gap-y-2 mt-2 text-sm text-slate-500">
-                <a v-for="link in paper.links" :key="link.name" :href="link.url" 
-                  class="flex items-center gap-2 text-sm font-bold text-slate-700 border border-slate-300 px-2 py-1 rounded-lg hover:border-primary hover:text-primary hover:bg-primary/5 transition bg-slate-50">
-                  <Icon :name="link.icon" class="w-4 h-4" />
-                  {{ link.name }}
-                </a>
-              </div>
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-500 border-t border-slate-100 pt-1 mb-1">
+              <span class="text-xs flex items-center gap-1"><Icon name="heroicons:calendar" class="w-4 h-4 text-slate-400" />{{ paper.date }}</span>
+              <span class="text-xs flex items-center gap-1" v-if="paper.location"><Icon name="heroicons:map-pin" class="w-4 h-4 text-slate-400" />{{ paper.location }}</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-1 mt-1text-slate-500">
+              <a v-for="link in paper.links" :key="link.name" :href="link.url" class="flex items-center gap-1 text-xs font-bold text-slate-700 border border-slate-300 px-2 py-1 rounded-lg hover:border-primary hover:text-primary hover:bg-primary/5 transition bg-slate-50">
+                <Icon :name="link.icon" class="w-4 h-4" />{{ link.name }}
+              </a>
             </div>
 
           </article>

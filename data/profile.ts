@@ -14,6 +14,6 @@ export const profile = {
     {name: "YouTube", url: "./", icon: "simple-icons:youtube", color: "hover:text-red-500 transition"},
   ],
   bio: `こんにちは．浮田 嵩祐です．AIに関する研究をしている大学院生です．
-  生成AIの効率化や基盤モデルの構築，表現学習などの深層学習領域や，機械学習の基礎理論(e.g. Grokking)に関心を持っています．
+  生成AIの効率化や基盤モデルの構築などの深層学習領域や，機械学習の基礎理論(e.g. Grokking)に関心を持っています．
   最近はFlow Matchingをよく触っています．`
 }
