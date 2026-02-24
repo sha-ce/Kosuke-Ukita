@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { profile } from '~/data/profile'
 import { publications } from '~/data/publications'
@@ -17,7 +16,13 @@ const highlightAuthor = (authors: string) => {
 <template>
   <div class="min-h-screen bg-white text-slate-800 font-sans selection:bg-primary/10">
     <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
-    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-4"><Icon name="heroicons:document-text" class="text-primary" /> CV </h3>
+
+    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+      <Icon name="heroicons:document-text" class="text-primary" /> CV
+      <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer" class="ml-auto flex items-center gap-1 text-sm font-medium text-slate-500 border border-slate-300 px-3 py-1 rounded-lg hover:border-primary hover:text-primary hover:bg-primary/5 transition bg-white">
+        <Icon name="heroicons:document-text" />PDF
+      </a>
+    </h3>
     
     <header class="flex flex-col sm:flex-row gap-8 items-start border-b-2 border-slate-100 pb-2">
       <div class="w-32 h-32 rounded-lg overflow-hidden shadow-xl shrink-0">
