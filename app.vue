@@ -14,7 +14,7 @@ useSeoMeta({
   ogTitle: 'Kosuke Ukita',
   description: profile.bio,
   ogDescription: profile.bio,
-  ogImage: 'https://Kosuke-Ukita.github.io/Kosuke-Ukita/public/assets/photo.jpg',
+  ogImage: '/assets/photo.jpg',
   twitterCard: 'summary_large_image',
 })
 useHead({
